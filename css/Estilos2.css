@@ -28,7 +28,7 @@ nav a:hover{
   background-color: #ffd8a8;
 }
 
-h1{
+h2{
   color: #f9f9f9;
   justify-content: center;
 }
@@ -73,7 +73,9 @@ h1{
 }
 /*Estilos carousel de Imagenes*/
 .carousel-item img {
-  height: 400px; /* Cambia la altura de las imágenes */
+  width: 800px;
+  aspect-ratio: auto 361 / 241;
+    height: 400px; /* Cambia la altura de las imágenes */
 
 }
 
@@ -88,6 +90,11 @@ h1{
 
 .carousel-indicators .active {
   background-color: #FFA500; /* Cambia el color de fondo del indicador activo */
+}
+.lead2{
+  margin: 20px;
+  text-align: justify;
+  font-size: 20px;
 }
 
 
