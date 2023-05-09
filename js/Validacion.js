@@ -1,18 +1,18 @@
-// objeto.metodo(json)
-$("#formulario1").validate({
-    rules: {
-        "txtNombre":{
-            required: true
+$(document).ready(function() {
+    $("#basic-form").validate({
+      rules: {
+        "txtNombre" : {
+          required: true,
+          minlength: 5
         },
-        "txtApellido":{
-            required: true
+        "txtAge": {
+          required: true,
+          number: true,
+          min: 18
         },
         "txtEmail": {
             required: true,
             email: true
-        },
-        "txtTelefono":{
-            
         },
         "txtContrasena": {
             required: true,
@@ -21,19 +21,21 @@ $("#formulario1").validate({
         "txtRepetirContrasena": {
             required: true,
             equalTo: '#id_txtContrasena'
-        }
-    }, // --> Fin de reglas
-    messages: {
-        
-        "txtNombre":{
-            required: 'ingrese su nombre!'
         },
-        "txtApellido":{
-            required: 'ingrese su apellido!'
+      },
+      messages : {
+        "txtNombre": {
+          required: "Porfavor ingresa tu Nombre",
+          minlength: "El nombre tiene que ser 5 caracteres"
+        },
+        "txtAge": {
+          required: "Porfavor ingresa tu edad",
+          number: "Porfavor ingresa tu edad con numeros",
+          min: "Tienes que tener 18 años"
         },
         "txtEmail": {
-            required: 'Ingrese email!!!',
-            email: 'No cumple formato'
+            required: 'Ingrese su email!!!',
+            minlength: 'Min. 5 caract'
         },
         "txtContrasena": {
             required: 'Ingrese Password!!!',
@@ -43,6 +45,6 @@ $("#formulario1").validate({
             required: 'Repita el Password!!',
             equalTo: ' deben ser iguales!!!!'
         }
-    } //-->Fin de mensajes
-
-});
+      }
+    });
+  });
