@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- agregamos Bootstrap -->
+    <link rel="icon" href="Imgs/R.png"  type="Cafe">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'app/css/Estilos1.css' %}">
+    <link rel="icon" href="{% static 'app/Img/R.png % }" >
+    <title>Productos</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg">
+    <H1><img src="{% static 'app/img/R.png' %}" height="50px" width="50px" style="color: white ">Cafeteria Star</H1>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'Inicio' %}">Inicio</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'registro' %}">Registro</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'Menu' %}">Productos</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'Acerca' %}">Acerca de Nosotros</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'logout' %}">cerrar sesion</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">@{{ user.username }}</a>
+        </li>
+        {% else %}
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'login' %}">Iniciar sesion</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'app/img/A.jpeg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'app/img/B.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'app/img/C.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
+      <a class="btn btn-primary" href="{% url 'agregar_producto' %}">Agregar Producto</a>
+      <a class="btn btn-primary" href="{% url 'listar_productos' %}">Listado Productos</a>
+    <hr class="featurette-divider">
+    <section class="projects">
+      <div class="product-container">
+        <div class="product">
+          <img src="{% static 'app/img/imagenes_Menu/comida_dona.jpg' %}" alt="Dona">
+          <h3>Dona Rellena</h3>
+          <p> Manjar o Nutella</p>
+          <button>$ 1000</button>
+        </div>
+        <div class="product">
+          <img src="{% static 'app/img/imagenes_Menu/comida_galleta.jpg' %}" alt="Galleta">
+          <h3>Galleta de chocolate</h3>
+          <p>Con chips de chocolate</p>
+          <button>2 X $1000</button>
+        </div>
+        <div class="product">
+          <img src="{% static 'app/img/imagenes_Menu/comida_hoja.jpeg' %}" alt="Pastel de hoja">
+          <h3>Pastel de mil hojas</h3>
+          <p>Con manjar y mermelada.</p>
+          <button>$ 2000</button>
+        </div>
+        <div class="product">
+          <img src="{% static 'app/img/imagenes_Menu/comida_media.jpg' %}" alt="Luna">
+          <h3>Media luna</h3>
+          <p>Rellena o sin relleno</p>
+          <button>3 X $1500</button>
+        </div>
+        <div class="product">
+          <img src="{% static 'app/img/imagenes_Menu/bebida_frappe_M.webp' %}" alt="Mocka">
+          <h3>Frappé de Mocka</h3>
+          <p>mezcla de hielo , crema batida y un chorrito de chocolate.</p>
+          <button>$ 4.000</button>
+        </div>
+        <div class="product">
+          <img src="{% static 'app/img/imagenes_Menu/bebida_frapuccino.webp' %}" alt="Frapuccino">
+          <h3>Frapuccino de Chocolate</h3>
+          <p>Café amargo, dulce, hielo y leche</p>
+          <button> $ 3000</button>
+        </div>
+        <div class="product">
+          <img src="{% static 'app/img/imagenes_Menu/bebida_cafe.png' %}" alt="Cafe Menu">
+          <h3>Café</h3>
+          <p>Viene acompañado con cubitos de azucar</p>
+          <button>$ 1500</button>
+        </div>
+        <div class="product">
+          <img src="{% static 'app/img/imagenes_Menu/bebida_capuccino.jpg' %}" alt="Capuccino_menu ">
+          <h3>Capuccino</h3>
+          <p>espresso (30 ml) + partes iguales de leche y crema de leche</p>
+          <button>$ 2000</button>
+        </div>
+      </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    <script src="js/producto.js"></script>
+</body>
+</html>
